@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors!</h1>
+
+
+
+
+
+
+
+    <script>
+
+      let humanScore = 0;
+      let computerScience = 0;
+
+
+      function getComputerChoice() {
+        let choices = ["rock", "paper", "scissors"];
+        let randomIndex = Math.floor(Math.random() * 3);
+
+        return choices[randomIndex];
+      }
+
+      function getHumanChoice() {
+        let rps = prompt();
+        return rps;
+      }
+
+
+      function humanSelection() {
+        let selection = getHumanChoice().toLowerCase();
+        return selection; 
+      }
+
+
+      let overAllcount = 0;
+      let humanCount = 0;
+      let computerCount = 0;
+
+
+      function playRound() {
+        let computerScore = getComputerChoice();
+        let humanScore = humanSelection();
+        let roundResult = 0;
+
+
+        if (computerScore == humanScore) {
+          roundResult = "It's a draw!" + " Both chose" + roundResult + "!";
+          overAllcount = overAllcount + 1;
+        }
+        if (computerScore == "rock" && humanScore == "paper") {
+          roundResult = "You win!" + " Paper beats rock!"
+          humanCount = humanCount + 1;
+          overAllcount = overAllcount + 1;
+
+        }
+        if (computerScore == "paper" && humanScore == "rock") {
+          roundResult = "You lose!" + " Paper beats rock!"
+          computerCount = computerCount + 1;
+          overAllcount = overAllcount + 1;
+
+        }
+        if (computerScore == "rock" && humanScore == "scissors"){
+          roundResult = "You lose!" + " rock beats scissors"
+          computerCount = computerCount + 1;
+          overAllcount = overAllcount + 1;
+
+        }
+        if (computerScore == "scissors" && humanScore == "rock"){
+          roundResult = "You win!" + " rock beats scissors"
+          humanCount = humanCount + 1;
+          overAllcount = overAllcount + 1;
+
+        }           
+        if (computerScore == "rock" && humanScore == "scissors"){
+          roundResult = "You lose!" + " rock beats scissors"
+          computerCount = computerCount + 1;
+          overAllcount = overAllcount + 1;
+
+        }          
+        if (computerScore == "scissors" && humanScore == "paper"){
+          roundResult = "You lose!" + " Scissors bests paper!"
+          computerCount = computerCount + 1;
+          overAllcount = overAllcount + 1;
+
+        }
+        if (computerScore == "paper" && humanScore == "scissors"){
+          roundResult = "You win!" + " Scissors bests paper!"
+          humanCount = humanCount + 1;
+          overAllcount = overAllcount + 1;
+        }
+
+        return roundResult;
+      }
+
+      function playGame(){
+       for (let a = 0; a < 5; a++){
+        playRound()
+      }
+      if (computerScore < humanScore) {
+      console.log("You lose!");
+      }
+      if (computerScore > humanScore) {
+      console.log("You win!");
+      }
+
+    
+
+      }
+      playGame();
+    
